@@ -1,0 +1,106 @@
+/* Common reset (KEEP ONLY ONCE in one file ideally) */
+* {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* Sidebar */
+.sidebar {
+  width: 230px;
+  height: 100vh;
+  background: linear-gradient(180deg, #067d9b, #045d73);
+  color: white;
+  padding: 20px 15px;
+
+  position: fixed;
+  left: 0;
+  top: 0;
+}
+
+
+.sidebar ul {
+  list-style: none;
+}
+
+.sidebar li {
+  margin-bottom: 12px;
+}
+
+.sidebar .menu-link {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+
+  padding: 12px 15px;
+  text-decoration: none;
+
+  color: #333;
+  font-weight: 600;
+
+  background-color: white;
+  border-radius: 10px;
+
+  transition: all 0.3s ease;
+}
+
+.sidebar .menu-link-logout {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+
+  padding: 12px 15px;
+  text-decoration: none;
+
+  color:rgb(245, 24, 24);
+  font-weight: 600;
+
+  background-color: white;
+  border-radius: 10px;
+
+  transition: all 0.3s ease;
+}
+
+.sidebar .menu-link:hover {
+  background-color: #e6f7fb;
+  color: #067d9b;
+  transform: translateX(6px);
+}
+
+
+
+/* Active menu item */
+.sidebar .menu-link.active {
+  background-color: #ffffff;
+  color: #067d9b;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+  transform: translateX(6px);
+}
+
+.sidebar .menu-link-logout.active {
+  color: red;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+}
+
+.logo a {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  text-decoration: none;
+  color: white;
+}
+
+.logo {
+  font-size: 26px;
+  font-weight: bold;
+  margin-bottom: 30px;
+}
+
+.logo-img {
+  height: 55px;
+  width: 55px;
+  border-radius: 50%;
+  object-fit: cover;
+}
