@@ -23,7 +23,7 @@ function Navbar() {
           <span className="badge">3</span>
         </div>}
 
-        {!user? (<NavLink onClick={()=>setShowUserLogin(false)} to="/login" className="auth-link">
+        {!user? (<NavLink onClick={()=>setShowUserLogin(true)} to="/login" className="auth-link">
           Login
         </NavLink>):
         <div onClick={()=>navigate("/my-profile")}>

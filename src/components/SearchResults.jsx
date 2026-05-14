@@ -1,8 +1,11 @@
 import React from "react";
 import "./SearchResults.css";
+import { useAppContext } from "../context/AppContext";
 
 
 const SearchResults = ({ results }) => {
+  const {user,navigate}=useAppContext();
+  
   return (
     <div className="results-section">
       
@@ -18,11 +21,11 @@ const SearchResults = ({ results }) => {
             </div>
 
             <div className="center">
-              <p>{train.time}</p>
+              <p>{train.departure} - {train.arrival}</p>
             </div>
 
             <div className="right">
-              <button>View Details</button>
+              <button  onClick={() => navigate(`/train/${train.id}`)}>View Details</button>
             </div>
           </div>
         ))

@@ -3,6 +3,7 @@ import { NavLink } from "react-router-dom";
 import "./Sidebar.css";
 import trainImg from "../assets/logo.avif";
 import { useAppContext } from "../context/AppContext";
+import toast from "react-hot-toast";
 
 function Sidebar() {
   const {user,setUser,setShowLoginUser,navigate}=useAppContext();
@@ -10,6 +11,7 @@ function Sidebar() {
   const logout=async()=>
   {
     setUser(null);
+    toast.success("Logged out successfully...")
     navigate('/');
   }
   return (
@@ -31,7 +33,7 @@ function Sidebar() {
           <NavLink to="/chat" className="menu-link">Help / Chatbot</NavLink>
         </li>
         {user &&<li>
-          <NavLink onClick={logout} to="/logout" className="menu-link-logout">Logout</NavLink>
+          <button onClick={logout} className="button-logout">Logout</button>
         </li>}
       </ul>
     </div>
