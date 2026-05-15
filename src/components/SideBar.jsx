@@ -1,41 +1,130 @@
 import React from "react";
+
 import { NavLink } from "react-router-dom";
+
 import "./Sidebar.css";
+
 import trainImg from "../assets/logo.avif";
+
 import { useAppContext } from "../context/AppContext";
+
 import toast from "react-hot-toast";
 
 function Sidebar() {
-  const {user,setUser,setShowLoginUser,navigate}=useAppContext();
 
-  const logout=async()=>
-  {
+  const {
+    user,
+    setUser,
+    navigate
+  } = useAppContext();
+
+  /* Logout */
+
+  const logout = async () => {
+
     setUser(null);
-    toast.success("Logged out successfully...")
-    navigate('/');
-  }
+
+    toast.success(
+      "Logged out successfully..."
+    );
+
+    navigate("/");
+  };
+
   return (
+
     <div className="sidebar">
-      <div className="logo">
-        <NavLink to="/"><img src={trainImg} className="logo-img" alt="logo" />
-        <span>Ticket</span></NavLink>
+
+      {/* Logo */}
+
+      <div className="sidebar-logo">
+
+        <NavLink
+          to="/"
+          end
+          className="sidebar-logo-link"
+        >
+
+          <img
+            src={trainImg}
+            className="sidebar-logo-img"
+            alt="logo"
+          />
+
+          <span className="sidebar-logo-text">
+
+            Ticket
+
+          </span>
+
+        </NavLink>
+
       </div>
 
+      {/* Menu */}
 
-      <ul>
+      <ul className="sidebar-menu">
+
         <li>
-          <NavLink to="/dashboard" className="menu-link">Dashboard</NavLink>
+
+          <NavLink
+            to="/dashboard"
+            className="menu-link"
+          >
+
+            Dashboard
+
+          </NavLink>
+
         </li>
+
         <li>
-          <NavLink to="/trains" className="menu-link">Train List</NavLink>
+
+          <NavLink
+            to="/trains"
+            className="menu-link"
+          >
+
+            Train List
+
+          </NavLink>
+
         </li>
+
         <li>
-          <NavLink to="/chat" className="menu-link">Help / Chatbot</NavLink>
+
+          <NavLink
+            to="/chat"
+            className="menu-link"
+          >
+
+            Help / Chatbot
+
+          </NavLink>
+
         </li>
-        {user &&<li>
-          <button onClick={logout} className="button-logout">Logout</button>
-        </li>}
+
+        {/* Logout */}
+
+        {user && (
+
+          <li>
+
+            <button
+              onClick={logout}
+              className="button-logout"
+            >
+
+              Logout
+
+            </button>
+
+          </li>
+
+        )}
+
       </ul>
+
     </div>
   );
 }

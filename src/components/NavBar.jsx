@@ -1,37 +1,133 @@
-import React, { useContext } from "react";
+import React from "react";
+
 import { NavLink } from "react-router-dom";
+
 import "./NavBar.css";
+
 import { useAppContext } from "../context/AppContext";
+
 import { assets } from "../assets/assets";
 
-
 function Navbar() {
-  const {user,setUser,setShowUserLogin,navigate}=useAppContext();
+
+  const {
+    user,
+    setUser,
+    setShowUserLogin,
+    navigate
+  } = useAppContext();
+
   return (
 
-    <nav className="navbar">
+    <nav className="navbar-container">
 
-      <ul className="nav-links">
-        <li><NavLink to="/" end className="nav-link">Home</NavLink></li>
-        {user && <li><NavLink to="/bookings" className="nav-link">My Bookings</NavLink></li>}
-        <li><NavLink to="/about" className="nav-link">About</NavLink></li>
+      {/* Navigation Links */}
+
+      <ul className="navbar-links-list">
+
+        <li className="navbar-links-item">
+
+          <NavLink
+            to="/"
+            end
+            className="navbar-link"
+          >
+
+            Home
+
+          </NavLink>
+
+        </li>
+
+        {user && (
+
+          <li className="navbar-links-item">
+
+            <NavLink
+              to="/bookings"
+              className="navbar-link"
+            >
+
+              My Bookings
+
+            </NavLink>
+
+          </li>
+
+        )}
+
+        <li className="navbar-links-item">
+
+          <NavLink
+            to="/about"
+            className="navbar-link"
+          >
+
+            About
+
+          </NavLink>
+
+        </li>
+
       </ul>
 
-      <div className="right-section">
-        {user && <div onClick={()=>navigate('/notifications')}className="notification">
-          🔔
-          <span className="badge">3</span>
-        </div>}
+      {/* Right Section */}
 
-        {!user? (<NavLink onClick={()=>setShowUserLogin(true)} to="/login" className="auth-link">
-          Login
-        </NavLink>):
-        <div onClick={()=>navigate("/profile")}>
-          <img src={assets.profile_icon} className="profile-icon"/>
-        </div>
-          
-          
-          }
+      <div className="navbar-right-section">
+
+        {user && (
+
+          <div
+            onClick={() =>
+              navigate("/notifications")
+            }
+            className="navbar-notification"
+          >
+
+            🔔
+
+            <span className="navbar-notification-badge">
+
+              3
+
+            </span>
+
+          </div>
+
+        )}
+
+        {!user ? (
+
+          <NavLink
+            onClick={() =>
+              setShowUserLogin(true)
+            }
+            to="/login"
+            className="navbar-auth-link"
+          >
+
+            Login
+
+          </NavLink>
+
+        ) : (
+
+          <div
+            onClick={() =>
+              navigate("/profile")
+            }
+            className="navbar-profile-wrapper"
+          >
+
+            <img
+              src={assets.profile_icon}
+              className="navbar-profile-icon"
+            />
+
+          </div>
+
+        )}
+
       </div>
 
     </nav>
