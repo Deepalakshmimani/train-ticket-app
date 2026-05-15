@@ -12,6 +12,7 @@ export const AppCotextProvider=({children})=>
   const[showUserLogin,setShowUserLogin]=useState(null);
   const[results,setResults]=useState([]);
   const[selectedDate,setSelectedDate]=useState("");
+  const[showTicket,setShowTicket]=useState(null);
 
   const handleSearch = (formData) => {
     console.log("Searching..", formData);
@@ -43,7 +44,9 @@ export const AppCotextProvider=({children})=>
     setResults,
     handleSearch,
     selectedDate,
-    setSelectedDate
+    setSelectedDate,
+    showTicket,
+    setShowTicket
   }
 
   return <AppContext.Provider value={value}>

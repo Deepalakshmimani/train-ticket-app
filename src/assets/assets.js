@@ -422,3 +422,158 @@ export const allTrains = [
     ]
   }
 ];
+
+export const bookings = [
+
+  {
+    id: 1,
+    train: "Chennai Express",
+    from: "Chennai",
+    to: "Bangalore",
+
+    date: "16 May 2026",
+
+    departure: "06:00 AM",
+    arrival: "12:00 PM",
+
+    passenger: "Deepa",
+
+    seats: 2,
+
+    amount: 900,
+
+    status: "Confirmed"
+  },
+
+  {
+    id: 2,
+    train: "Vaigai Express",
+    from: "Madurai",
+    to: "Chennai",
+
+    date: "20 May 2026",
+
+    departure: "01:40 PM",
+    arrival: "09:30 PM",
+
+    passenger: "Deepa",
+
+    seats: 1,
+
+    amount: 580,
+
+    status: "Cancelled"
+  },
+
+  {
+    id: 3,
+    train: "Shatabdi Express",
+    from: "Chennai",
+    to: "Mysore",
+
+    date: "25 May 2026",
+
+    departure: "05:30 AM",
+    arrival: "01:00 PM",
+
+    passenger: "Deepa",
+
+    seats: 3,
+
+    amount: 2550,
+
+    status: "Confirmed"
+  }
+
+];
+
+export const ticketData = [
+
+  {
+    id: 1,
+
+    train: "Chennai Express",
+    trainNo: "12627",
+
+    from: "Chennai",
+    to: "Bangalore",
+
+    journeyDate: "16 May 2026",
+
+    departure: "06:00 AM",
+    arrival: "12:00 PM",
+
+    passenger: "Deepa",
+
+    seats: 2,
+
+    coach: "S1",
+
+    seatNumbers: ["21", "22"],
+
+    bookingId: "TR45892",
+
+    amount: 900,
+
+    status: "Confirmed"
+  },
+
+  {
+    id: 2,
+
+    train: "Vaigai Express",
+    trainNo: "12644",
+
+    from: "Madurai",
+    to: "Chennai",
+
+    journeyDate: "20 May 2026",
+
+    departure: "01:40 PM",
+    arrival: "09:30 PM",
+
+    passenger: "Deepa",
+
+    seats: 1,
+
+    coach: "B2",
+
+    seatNumbers: ["14"],
+
+    bookingId: "TR67215",
+
+    amount: 580,
+
+    status: "Cancelled"
+  },
+
+  {
+    id: 3,
+
+    train: "Shatabdi Express",
+    trainNo: "12007",
+
+    from: "Chennai",
+    to: "Mysore",
+
+    journeyDate: "25 May 2026",
+
+    departure: "05:30 AM",
+    arrival: "01:00 PM",
+
+    passenger: "Deepa",
+
+    seats: 3,
+
+    coach: "C1",
+
+    seatNumbers: ["10", "11", "12"],
+
+    bookingId: "TR98134",
+
+    amount: 2550,
+
+    status: "Confirmed"
+  }
+
+];

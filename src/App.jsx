@@ -13,13 +13,16 @@ import TrainDetails from './pages/TrainDetails'
 import BookingPage from './pages/BookingPage'
 
 import { Toaster } from "react-hot-toast";
+import MyBookings from './pages/MyBookings';
+import Ticket from './pages/Ticket';
+import About from './components/About'
 
 const App = () => {
 
   const isSellerPath = useLocation()
     .pathname.includes("seller");
 
-  const { showUserLogin } = useAppContext();
+  const { showUserLogin,showTicket } = useAppContext();
 
   return (
 
@@ -29,6 +32,8 @@ const App = () => {
       {!isSellerPath && <Sidebar />}
 
       {showUserLogin && <Login />}
+     
+
 
       <Toaster />
 
@@ -55,7 +60,20 @@ const App = () => {
             path='/book/:id'
             element={<BookingPage />}
           />
+           <Route
+            path='/bookings'
+            element={<MyBookings />}
+          />
 
+          <Route
+            path='/viewticket/:id'
+            element={<Ticket/>}
+          />
+
+          <Route
+            path='/about'
+            element={<About/>}
+          />
         </Routes>
 
       </div>
