@@ -18,7 +18,7 @@ function Navbar() {
       </ul>
 
       <div className="right-section">
-        {user && <div className="notification">
+        {user && <div onClick={()=>navigate('/notifications')}className="notification">
           🔔
           <span className="badge">3</span>
         </div>}
@@ -26,7 +26,7 @@ function Navbar() {
         {!user? (<NavLink onClick={()=>setShowUserLogin(true)} to="/login" className="auth-link">
           Login
         </NavLink>):
-        <div onClick={()=>navigate("/my-profile")}>
+        <div onClick={()=>navigate("/profile")}>
           <img src={assets.profile_icon} className="profile-icon"/>
         </div>
           

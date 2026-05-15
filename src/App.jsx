@@ -16,6 +16,10 @@ import { Toaster } from "react-hot-toast";
 import MyBookings from './pages/MyBookings';
 import Ticket from './pages/Ticket';
 import About from './components/About'
+import Feedback from './pages/Feedback'
+import CancelBooking from './pages/CancelBooking'
+import Notifications from './pages/Notifications'
+import Profile from './pages/Profile'
 
 const App = () => {
 
@@ -73,6 +77,23 @@ const App = () => {
           <Route
             path='/about'
             element={<About/>}
+          />
+
+          <Route
+            path='/feedback'
+            element={<Feedback/>}
+          />
+           <Route
+            path='/cancelbooking'
+            element={<CancelBooking/>}
+          />
+          <Route
+            path='/notifications' 
+            element={<Notifications/>}
+          />
+          <Route
+            path='/profile'
+            element={<Profile/>}
           />
         </Routes>
 

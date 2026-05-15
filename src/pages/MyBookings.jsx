@@ -75,11 +75,11 @@ const MyBookings = () => {
                 Download Ticket
               </button> */}
 
-              {item.status==='Confirmed' && <button className="cancel-btn">
+              {item.status==='Confirmed' && <button onClick={()=>navigate('/cancelbooking')} className="cancel-btn">
                 Cancel Ticket
               </button>}
 
-              {item.status==='Confirmed' &&<button className="feedback-btn">
+              {item.status==='Confirmed' &&<button onClick={()=>navigate('/feedback')} className="feedback-btn">
                 Feedback
               </button>}
 
