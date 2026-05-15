@@ -20,20 +20,28 @@ import Feedback from './pages/Feedback'
 import CancelBooking from './pages/CancelBooking'
 import Notifications from './pages/Notifications'
 import Profile from './pages/Profile'
+import AdminLogin from './components/admin/AdminLogin'
+import AdminLayout from './pages/admin/AdminLayout'
+import TrainList from './pages/admin/TrainList'
+import AddTrain from './pages/admin/AddTrain'
+import CoachManagement from './pages/admin/CoachTemplates'
+import AddCoach from './pages/admin/AddCoach'
+import Bookings from './pages/admin/Bookings'
 
 const App = () => {
 
-  const isSellerPath = useLocation()
-    .pathname.includes("seller");
+  const isAdminPath = useLocation()
+    .pathname.includes("admin");
 
   const { showUserLogin,showTicket } = useAppContext();
+  const {isAdmin,setIsAdmin}=useAppContext();
 
   return (
 
     <div>
 
-      {!isSellerPath && <Navbar />}
-      {!isSellerPath && <Sidebar />}
+      {!isAdminPath && <Navbar />}
+      {!isAdminPath && <Sidebar />}
 
       {showUserLogin && <Login />}
      
@@ -95,11 +103,63 @@ const App = () => {
             path='/profile'
             element={<Profile/>}
           />
+
+          <Route
+            path='/admin'
+            element={<AdminLogin/>}
+          />
+
+          <Route
+            path='/admin/dashboard'
+            element={<AdminLayout/>}
+          >
+
+            <Route
+              index
+              element={<h1>Dashboard</h1>}
+            />
+
+            <Route
+              path='trains'
+              element={<h1>Train List</h1>  && <TrainList/>}
+            />
+
+            <Route
+              path='add-train'
+              element={<AddTrain/>}
+            />
+
+            <Route
+              path='update-train/:id'
+              element={<AddTrain/>}
+            />
+
+            <Route
+              path='coaches'
+              element={<CoachManagement/>}
+            />
+            <Route
+              path='add-coach'
+              element={<AddCoach/>}
+            />
+            <Route
+              path='add-coach/:id'
+              element={<AddCoach/>}
+            />
+
+            <Route
+              path='bookings'
+              element={<Bookings/>}
+            />
+
+          </Route>
+
+          
         </Routes>
 
       </div>
 
-      {!isSellerPath && <Footer />}
+      {!isAdminPath && <Footer />}
 
     </div>
   )
